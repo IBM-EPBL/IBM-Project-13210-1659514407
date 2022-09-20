@@ -4,7 +4,7 @@ Machine Learning based Vehicle Performance Analyzer
 
 #Team Members
 
-1.Gunaal R - Team lead
-2.Jaswanth Krishna V
-3.Balasubramaniam S
-4.Sriraja Vignesh S
+1.Gunaal R - Team lead <br>
+2.Jaswanth Krishna V <br>
+3.Balasubramaniam S <br>
+4.Sriraja Vignesh S <br>
