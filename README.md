@@ -1,10 +1,3 @@
-# IBM-Project-13210-1659514407
-Machine Learning based Vehicle Performance Analyzer
+IBM-Project-13274-1659515636
+# Deep Learning Fundus Image Analysis for Early Detection of Diabetic Retinopathy
 
-
-### Team Members
-
-1.Gunaal R - Team lead <br>
-2.Jaswanth Krishna V <br>
-3.Balasubramaniam S <br>
-4.Sriraja Vignesh S <br>
