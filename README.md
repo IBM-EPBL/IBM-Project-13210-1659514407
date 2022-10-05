@@ -3,7 +3,7 @@
 # Machine Learning based Vehicle Performance Analyzer
 
 #### Gunaal R - Team lead
-#### Jaswanth Krishna V - Member 2
+#### Jaswanth Krishna V - Member 1
+#### Sri Raja Vigneh S - Member 2
 #### Balaubramanian S - Member 3
-#### Sri Raja Vigneh S - Member 4
 
