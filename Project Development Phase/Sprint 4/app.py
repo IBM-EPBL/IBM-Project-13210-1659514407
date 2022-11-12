@@ -1,49 +1,37 @@
-import numpy as np
-from flask import Flask, request, jsonify, render_template
+from flask import Flask,render_template,request,url_for
+app=Flask(__name__)
 import pickle
-#from joblib import load
-app = Flask(__name__)
-model = pickle.load(open('RandomForestRegressor.pkl', 'rb'))
-
+model=pickle.load(open("RandomForestRegressor.pkl","rb"))
 @app.route('/')
-def home():
-    return render_template('index.html')
+def helloworld():
+    return render_template("index.html")
 
-@app.route('/y_predict',methods=['POST'])
-def y_predict():
-    '''
-    For rendering results on HTML GUI
-    '''
-    x_test = [[int(x) for x in request.form.values()]]
-    print(x_test)
-    #sc = load('scalar.save') 
-    prediction = model.predict(x_test)
-    print(prediction)
-    output=prediction[0]
-    if(output<=9):
-        pred="Worst performance with mileage " + str(prediction[0]) +". Carry extra fuel"
-    if(output>9 and output<=17.5):
-        pred="Low performance with mileage " +str(prediction[0]) +". Don't go to long distance"
-    if(output>17.5 and output<=29):
-        pred="Medium performance with mileage " +str(prediction[0]) +". Go for a ride nearby"
-    if(output>29 and output<=46):
-        pred="High performance with mileage " +str(prediction[0]) +". Go for a healthy ride"
-    if(output>46):
-        pred="Hurray!! Very high performance with mileage " +str(prediction[0])+". You can plan for a Tour"
-        
+@app.route('/login',methods=["POST","GET"])
+def admin():
+    if request.method=="POST":
+        if(request.form == None):
+            return render_template('form.html')
+        p=request.form["cylinders"]
+        q=request.form["displacement"]
+        r=request.form["horsepower"]
+        s=request.form["weight"]
+        t=request.form["acceleration"]
+        u=request.form["modelyear"]
+        v=request.form["origin"]
+        try:
+            w=[[int(p),int(q),int(r),int(s),float(t),int(u),int(v)]]
     
-    return render_template('index.html', prediction_text='{}'.format(pred))
-
-@app.route('/predict_api',methods=['POST'])
-def predict_api():
-    '''
-    For direct API calls trought request
-    '''
-    data = request.get_json(force=True)
-    prediction = model.y_predict([np.array(list(data.values()))])
-
-    output = prediction[0]
-    return jsonify(output)
-
-if __name__ == "__main__":
+            y=model.predict((w))
+            return render_template("form.html",y="The predicted mileage would be:" +str(y[0][0]))
+        except:
+            return render_template("form.html",error="Please enter numeric value")
+    else:
+        return render_template('form.html')
+@app.route('/user')
+def user():
+    return "hi user"
+if __name__=='__main__':
     app.run(debug=True)
+    
+
+
