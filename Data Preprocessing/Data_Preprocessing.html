@@ -15604,7 +15604,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="c1"># The following code accesses a file in your IBM Cloud Object Storage. It includes your credentials.</span>
 <span class="c1"># You might want to remove those credentials before you share the notebook.</span>
 <span class="n">cos_client</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="n">service_name</span><span class="o">=</span><span class="s1">'s3'</span><span class="p">,</span>
-    <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="s1">'z7n2Bl1LMv4fgVz7gHML7i6x8P-b5eaNO-qxWX4yRxRo'</span><span class="p">,</span>
+    <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="s1">  <script>
+      console.log(process.env.SECRET_KEY);
+    </script>
+  </span><span class="p">,</span>
     <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="s2">"https://iam.cloud.ibm.com/oidc/token"</span><span class="p">,</span>
     <span class="n">config</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">signature_version</span><span class="o">=</span><span class="s1">'oauth'</span><span class="p">),</span>
     <span class="n">endpoint_url</span><span class="o">=</span><span class="s1">'https://s3.private.eu.cloud-object-storage.appdomain.cloud'</span><span class="p">)</span>
